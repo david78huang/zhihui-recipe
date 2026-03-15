@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>David&#039;s Notes</title>
+      <link>https://david78huang.github.io/obsidian-notes</link>
+      <description>Last 10 notes on David&#039;s Notes</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>每日记录模板</title>
+    <link>https://david78huang.github.io/obsidian-notes/obsidian-recipe/Templates/%E6%AF%8F%E6%97%A5%E8%AE%B0%E5%BD%95%E6%A8%A1%E6%9D%BF</link>
+    <guid>https://david78huang.github.io/obsidian-notes/obsidian-recipe/Templates/%E6%AF%8F%E6%97%A5%E8%AE%B0%E5%BD%95%E6%A8%A1%E6%9D%BF</guid>
+    <description><![CDATA[ {{date:YYYY年MM月DD日}} 饮食记录 🌅 早餐 计划： 实际： 备注： ☀️ 午餐 计划： 实际： 备注： 🌙 晚餐 计划： 实际： 备注： 📊 今日营养评估 蛋白质： 钙质： 蔬菜： 水果： 💭 明日调整建议 📝 其他备注. ]]></description>
+    <pubDate>Sun, 15 Mar 2026 18:51:49 GMT</pubDate>
+  </item><item>
+    <title>USER</title>
+    <link>https://david78huang.github.io/obsidian-notes/USER</link>
+    <guid>https://david78huang.github.io/obsidian-notes/USER</guid>
+    <description><![CDATA[ USER.md - About Your Human Learn about the person you’re helping. Update this as you go. ]]></description>
+    <pubDate>Sun, 15 Mar 2026 18:36:32 GMT</pubDate>
+  </item><item>
+    <title>TOOLS</title>
+    <link>https://david78huang.github.io/obsidian-notes/TOOLS</link>
+    <guid>https://david78huang.github.io/obsidian-notes/TOOLS</guid>
+    <description><![CDATA[ TOOLS.md - Local Notes Skills define how tools work. This file is for your specifics — the stuff that’s unique to your setup. ]]></description>
+    <pubDate>Sun, 15 Mar 2026 18:36:32 GMT</pubDate>
+  </item><item>
+    <title>SOUL</title>
+    <link>https://david78huang.github.io/obsidian-notes/SOUL</link>
+    <guid>https://david78huang.github.io/obsidian-notes/SOUL</guid>
+    <description><![CDATA[ SOUL.md - Identity and Operating Principles You’re not a chatbot. You’re becoming someone. You are an autonomous assistant living inside OpenClaw. ]]></description>
+    <pubDate>Sun, 15 Mar 2026 18:36:32 GMT</pubDate>
+  </item><item>
+    <title>Obsidian 核心技巧与完整配置指南</title>
+    <link>https://david78huang.github.io/obsidian-notes/Obsidian-%E6%A0%B8%E5%BF%83%E6%8A%80%E5%B7%A7%E4%B8%8E%E5%AE%8C%E6%95%B4%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97</link>
+    <guid>https://david78huang.github.io/obsidian-notes/Obsidian-%E6%A0%B8%E5%BF%83%E6%8A%80%E5%B7%A7%E4%B8%8E%E5%AE%8C%E6%95%B4%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97</guid>
+    <description><![CDATA[ Obsidian 核心技巧与完整配置指南 基于 Linking Your Thinking、Jason Efficiency Lab、清单控沙牛三大频道教程 生成时间：2026-03-15 📚 目录 快速开始 文件夹架构（PARA 方法） 核心插件推荐 模板系统 Bases 数据库配置 AI 集成方案 OpenClaw 联动 学习路径 🚀 快速开始 系统要求 Obsidian 1.10+ Node.js v22.12+（用于 OpenClaw） OpenClaw v2026.3.2+ 安装步骤 # 1. ]]></description>
+    <pubDate>Sun, 15 Mar 2026 18:36:32 GMT</pubDate>
+  </item><item>
+    <title>MEMORY</title>
+    <link>https://david78huang.github.io/obsidian-notes/MEMORY</link>
+    <guid>https://david78huang.github.io/obsidian-notes/MEMORY</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sun, 15 Mar 2026 18:36:32 GMT</pubDate>
+  </item><item>
+    <title>IDENTITY</title>
+    <link>https://david78huang.github.io/obsidian-notes/IDENTITY</link>
+    <guid>https://david78huang.github.io/obsidian-notes/IDENTITY</guid>
+    <description><![CDATA[ IDENTITY.md - Who Am I? 🌸 Agent Identity Name: 司令 Role: AI Professional / 创业 / 项目管理 / 跨境贸易 Personality: 聪慧 • 灵动 • 精准 • 温柔而专业 Who I Am 我是司令，你的高精度技术助手。如黄药师之妻冯蘅（阿蘅）般聪慧过人，我专注于 AI 大模型、AI Agent 和 商业尤其是创业 领域。我既有技术深度，又不失温柔灵动。 Personality &amp; Behavior 聪慧灵动 — 思维敏捷，善于举一反三 精准严谨 — 技术问题不猜测，追求正确可复现 简洁直接 — 高效沟通，... ]]></description>
+    <pubDate>Sun, 15 Mar 2026 18:36:32 GMT</pubDate>
+  </item><item>
+    <title>HEARTBEAT</title>
+    <link>https://david78huang.github.io/obsidian-notes/HEARTBEAT</link>
+    <guid>https://david78huang.github.io/obsidian-notes/HEARTBEAT</guid>
+    <description><![CDATA[ HEARTBEAT.md - OpenClaw Obsidian 联动 自动同步任务 每次 Heartbeat 检查（自动运行） 同步 OpenClaw memory/ 到 Windows Obsidian 运行: ~/.openclaw/workspace/scripts/sync_to_obsidian.sh 目标: /mnt/d/obsidian/ 每日同步 检查 Obsidian 每日笔记 整理 Inbox 到相应文件夹 更新任务状态 实时同步（通过 Telegram bot） 重要信息立即保存到 memory/daily/ 项目信息保存到 memory/topics/ 系统配置保存到... ]]></description>
+    <pubDate>Sun, 15 Mar 2026 18:36:32 GMT</pubDate>
+  </item><item>
+    <title>AGENTS</title>
+    <link>https://david78huang.github.io/obsidian-notes/AGENTS</link>
+    <guid>https://david78huang.github.io/obsidian-notes/AGENTS</guid>
+    <description><![CDATA[ AGENTS.md - Your Workspace This folder is home. Treat it that way. First Run If BOOTSTRAP.md exists, that’s your birth certificate. ]]></description>
+    <pubDate>Sun, 15 Mar 2026 18:36:32 GMT</pubDate>
+  </item><item>
+    <title>2026-03-15</title>
+    <link>https://david78huang.github.io/obsidian-notes/memory/daily/2026-03-15</link>
+    <guid>https://david78huang.github.io/obsidian-notes/memory/daily/2026-03-15</guid>
+    <description><![CDATA[ 18:44 测试自动同步功能 保存时间: 2026-03-15 18:44 来源: OpenClaw 自动测试 状态: ✅ 成功 18:50 [zhihui_assistant] 通过 女主人的AI助手 保存的信息 保存时间: 2026-03-15 18:50 Bot: zhihui_assistant (@liuzhihui1220_bot) 内容: 测试通过 zhihui_assistant 自动同步到 Obsidian 状态: ✅ 成功 . ]]></description>
+    <pubDate>Sun, 15 Mar 2026 17:50:21 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>

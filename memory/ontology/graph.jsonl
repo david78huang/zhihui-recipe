@@ -1,0 +1,114 @@
+{"op":"create","entity":{"id":"person_david","type":"Person","properties":{"name":"David","role":"User","expertise":"HPC Testing Engineer"},"created":"2026-03-15T15:47:00Z","updated":"2026-03-15T15:47:00Z"}}
+{"op":"create","entity":{"id":"proj_startup","type":"Project","properties":{"name":"AI创业","status":"planning","goals":["成为个人创业者","利用AI做欧洲高利润项目"],"location":"匈牙利","timeline":"1-2年"},"created":"2026-03-15T15:59:00Z","updated":"2026-03-15T15:59:00Z"}}
+{"op":"relate","from":"person_david","rel":"owns","to":"proj_startup","properties":{"role":"founder"},"created":"2026-03-15T15:59:00Z"}}
+{"op":"create","entity":{"id":"goal_year1","type":"Goal","properties":{"description":"成为个人创业者，AI相关方向","target_date":"2027-03-15","status":"in_progress"},"created":"2026-03-15T15:59:00Z","updated":"2026-03-15T15:59:00Z"}}
+{"op":"create","entity":{"id":"goal_year2","type":"Goal","properties":{"description":"创业项目成为主要经济来源","target_date":"2028-03-15","status":"planned"},"created":"2026-03-15T15:59:00Z","updated":"2026-03-15T15:59:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_goal","to":"goal_year1","created":"2026-03-15T15:59:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_goal","to":"goal_year2","created":"2026-03-15T15:59:00Z"}}
+{"op":"create","entity":{"id":"task_learn_llm","type":"Task","properties":{"title":"深入学习LLM原理和应用","status":"in_progress","priority":"high"},"created":"2026-03-15T15:59:00Z","updated":"2026-03-15T15:59:00Z"}}
+{"op":"create","entity":{"id":"task_learn_framework","type":"Task","properties":{"title":"掌握主流框架技术（Agent/LangChain/LangGraph/RAG）","status":"in_progress","priority":"high"},"created":"2026-03-15T15:59:00Z","updated":"2026-03-15T15:59:00Z"}}
+{"op":"create","entity":{"id":"task_openclaw","type":"Task","properties":{"title":"学习搭建OpenClaw，与AI协作","status":"in_progress","priority":"medium"},"created":"2026-03-15T15:59:00Z","updated":"2026-03-15T15:59:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_task","to":"task_learn_llm","created":"2026-03-15T15:59:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_task","to":"task_learn_framework","created":"2026-03-15T15:59:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_task","to":"task_openclaw","created":"2026-03-15T15:59:00Z"}}
+{"op":"create","entity":{"id":"doc_llm_primer","type":"Document","properties":{"title":"LLM入门指南","url":"https://docs.openclaw.ai/llm-primer","summary":"大语言模型基础概念和应用","tags":["LLM","AI","入门"],"status":"todo"},"created":"2026-03-15T16:00:00Z","updated":"2026-03-15T16:00:00Z"}}
+{"op":"create","entity":{"id":"doc_langchain","type":"Document","properties":{"title":"LangChain官方文档","url":"https://python.langchain.com/docs","summary":"LangChain框架完整文档","tags":["LangChain","框架","Python"],"status":"todo"},"created":"2026-03-15T16:00:00Z","updated":"2026-03-15T16:00:00Z"}}
+{"op":"create","entity":{"id":"doc_langgraph","type":"Document","properties":{"title":"LangGraph教程","url":"https://langchain-ai.github.io/langgraph/","summary":"构建复杂Agent工作流","tags":["LangGraph","Agent","工作流"],"status":"todo"},"created":"2026-03-15T16:00:00Z","updated":"2026-03-15T16:00:00Z"}}
+{"op":"create","entity":{"id":"doc_rag","type":"Document","properties":{"title":"RAG最佳实践","url":"https://docs.openclaw.ai/rag-guide","summary":"检索增强生成实现指南","tags":["RAG","向量数据库","检索"],"status":"todo"},"created":"2026-03-15T16:00:00Z","updated":"2026-03-15T16:00:00Z"}}
+{"op":"create","entity":{"id":"doc_openclaw","type":"Document","properties":{"title":"OpenClaw官方文档","url":"https://docs.openclaw.ai","summary":"OpenClaw完整使用指南","tags":["OpenClaw","AI助手","自动化"],"status":"in_progress"},"created":"2026-03-15T16:00:00Z","updated":"2026-03-15T16:00:00Z"}}
+{"op":"relate","from":"task_learn_llm","rel":"references","to":"doc_llm_primer","created":"2026-03-15T16:00:00Z"}}
+{"op":"relate","from":"task_learn_framework","rel":"references","to":"doc_langchain","created":"2026-03-15T16:00:00Z"}}
+{"op":"relate","from":"task_learn_framework","rel":"references","to":"doc_langgraph","created":"2026-03-15T16:00:00Z"}}
+{"op":"relate","from":"task_learn_framework","rel":"references","to":"doc_rag","created":"2026-03-15T16:00:00Z"}}
+{"op":"relate","from":"task_openclaw","rel":"references","to":"doc_openclaw","created":"2026-03-15T16:00:00Z"}}
+{"op":"create","entity":{"id":"note_skill_self_improvement","type":"Note","properties":{"content":"Self-Improvement Skill用于记录学习、错误和功能请求，帮助AI持续改进","tags":["skill","self-improvement","learning"],"refs":["skill_self_improvement"]},"created":"2026-03-15T16:00:00Z","updated":"2026-03-15T16:00:00Z"}}
+{"op":"create","entity":{"id":"note_skill_ontology","type":"Note","properties":{"content":"Ontology Skill用于构建知识图谱，管理实体和关系","tags":["skill","ontology","knowledge-graph"],"refs":["skill_ontology"]},"created":"2026-03-15T16:00:00Z","updated":"2026-03-15T16:00:00Z"}}
+{"op":"create","entity":{"id":"skill_self_improvement","type":"Document","properties":{"title":"Self-Improvement Skill","path":"~/.openclaw/workspace/skills/self-improvement","summary":"记录学习和错误，持续改进","tags":["skill","openclaw"],"status":"ready"},"created":"2026-03-15T16:00:00Z","updated":"2026-03-15T16:00:00Z"}}
+{"op":"create","entity":{"id":"skill_ontology","type":"Document","properties":{"title":"Ontology Skill","path":"~/.openclaw/workspace/skills/ontology","summary":"知识图谱和实体管理","tags":["skill","openclaw"],"status":"ready"},"created":"2026-03-15T16:00:00Z","updated":"2026-03-15T16:00:00Z"}}
+{"op":"relate","from":"note_skill_self_improvement","rel":"documents","to":"skill_self_improvement","created":"2026-03-15T16:00:00Z"}}
+{"op":"relate","from":"note_skill_ontology","rel":"documents","to":"skill_ontology","created":"2026-03-15T16:00:00Z"}}
+{"op":"create","entity":{"id":"milestone_q1_2026","type":"Event","properties":{"title":"2026 Q1 学习里程碑","start":"2026-03-15","end":"2026-03-31","description":"第一季度学习目标完成检查","attendees":["person_david"],"status":"in_progress"},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"milestone_q2_2026","type":"Event","properties":{"title":"2026 Q2 学习里程碑","start":"2026-04-01","end":"2026-06-30","description":"掌握LangChain和基础Agent开发","attendees":["person_david"],"status":"planned"},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"milestone_q3_2026","type":"Event","properties":{"title":"2026 Q3 学习里程碑","start":"2026-07-01","end":"2026-09-30","description":"完成第一个AI项目原型","attendees":["person_david"],"status":"planned"},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"milestone_q4_2026","type":"Event","properties":{"title":"2026 Q4 学习里程碑","start":"2026-10-01","end":"2026-12-31","description":"项目优化和商业验证","attendees":["person_david"],"status":"planned"},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_milestone","to":"milestone_q1_2026","created":"2026-03-15T16:05:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_milestone","to":"milestone_q2_2026","created":"2026-03-15T16:05:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_milestone","to":"milestone_q3_2026","created":"2026-03-15T16:05:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_milestone","to":"milestone_q4_2026","created":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"schedule_weekly_study","type":"Event","properties":{"title":"每周学习时间","start":"2026-03-15","recurrence":"weekly","description":"每周至少5小时学习AI技术","attendees":["person_david"],"location":"home"},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"schedule_daily_practice","type":"Event","properties":{"title":"每日实践时间","start":"2026-03-15","recurrence":"daily","description":"每天至少1小时动手实践","attendees":["person_david"],"location":"home"},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"task_llm_transformer","type":"Task","properties":{"title":"学习Transformer架构","status":"todo","priority":"high","due":"2026-03-31","estimated_hours":10},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"task_llm_attention","type":"Task","properties":{"title":"理解Attention机制","status":"todo","priority":"high","due":"2026-03-31","estimated_hours":8},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"task_llm_finetune","type":"Task","properties":{"title":"学习模型微调技术","status":"todo","priority":"medium","due":"2026-04-15","estimated_hours":15},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"relate","from":"task_learn_llm","rel":"has_subtask","to":"task_llm_transformer","created":"2026-03-15T16:05:00Z"}}
+{"op":"relate","from":"task_learn_llm","rel":"has_subtask","to":"task_llm_attention","created":"2026-03-15T16:05:00Z"}}
+{"op":"relate","from":"task_learn_llm","rel":"has_subtask","to":"task_llm_finetune","created":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"task_langchain_basics","type":"Task","properties":{"title":"LangChain基础组件","status":"todo","priority":"high","due":"2026-04-30","estimated_hours":12},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"task_langchain_chains","type":"Task","properties":{"title":"Chains和Agents","status":"todo","priority":"high","due":"2026-05-15","estimated_hours":15},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"task_langgraph_workflow","type":"Task","properties":{"title":"LangGraph工作流设计","status":"todo","priority":"medium","due":"2026-05-30","estimated_hours":20},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"task_rag_implementation","type":"Task","properties":{"title":"RAG系统实现","status":"todo","priority":"medium","due":"2026-06-15","estimated_hours":25},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"relate","from":"task_learn_framework","rel":"has_subtask","to":"task_langchain_basics","created":"2026-03-15T16:05:00Z"}}
+{"op":"relate","from":"task_learn_framework","rel":"has_subtask","to":"task_langchain_chains","created":"2026-03-15T16:05:00Z"}}
+{"op":"relate","from":"task_learn_framework","rel":"has_subtask","to":"task_langgraph_workflow","created":"2026-03-15T16:05:00Z"}}
+{"op":"relate","from":"task_learn_framework","rel":"has_subtask","to":"task_rag_implementation","created":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"task_openclaw_config","type":"Task","properties":{"title":"配置OpenClaw环境","status":"completed","priority":"high","due":"2026-03-15","completed_date":"2026-03-15"},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"task_openclaw_skills","type":"Task","properties":{"title":"安装和配置Skills","status":"in_progress","priority":"medium","due":"2026-03-20"},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"task_openclaw_workflow","type":"Task","properties":{"title":"建立日常工作流","status":"todo","priority":"medium","due":"2026-03-31"},"created":"2026-03-15T16:05:00Z","updated":"2026-03-15T16:05:00Z"}}
+{"op":"relate","from":"task_openclaw","rel":"has_subtask","to":"task_openclaw_config","created":"2026-03-15T16:05:00Z"}}
+{"op":"relate","from":"task_openclaw","rel":"has_subtask","to":"task_openclaw_skills","created":"2026-03-15T16:05:00Z"}}
+{"op":"relate","from":"task_openclaw","rel":"has_subtask","to":"task_openclaw_workflow","created":"2026-03-15T16:05:00Z"}}
+{"op":"create","entity":{"id":"tool_pycharm","type":"Device","properties":{"name":"PyCharm","type":"IDE","identifiers":["JetBrains","Python"],"purpose":"Python开发，AI项目编码","status":"active"},"created":"2026-03-15T16:07:00Z","updated":"2026-03-15T16:07:00Z"}}
+{"op":"create","entity":{"id":"tool_mobaxterm","type":"Device","properties":{"name":"MobaXterm","type":"Terminal","identifiers":["SSH","X11"],"purpose":"远程服务器管理，HPC集群操作","status":"active"},"created":"2026-03-15T16:07:00Z","updated":"2026-03-15T16:07:00Z"}}
+{"op":"create","entity":{"id":"tool_openclaw","type":"Device","properties":{"name":"OpenClaw","type":"AI助手平台","identifiers":["AI","Automation"],"purpose":"个人AI助手，自动化任务","status":"active"},"created":"2026-03-15T16:07:00Z","updated":"2026-03-15T16:07:00Z"}}
+{"op":"create","entity":{"id":"tool_telegram","type":"Device","properties":{"name":"Telegram","type":"通讯工具","identifiers":["Messaging","Bots"],"purpose":"与AI助手交互，接收通知","status":"active"},"created":"2026-03-15T16:07:00Z","updated":"2026-03-15T16:07:00Z"}}
+{"op":"create","entity":{"id":"tool_teams","type":"Device","properties":{"name":"Microsoft Teams","type":"协作工具","identifiers":["Microsoft","Communication"],"purpose":"工作沟通，会议","status":"active"},"created":"2026-03-15T16:07:00Z","updated":"2026-03-15T16:07:00Z"}}
+{"op":"create","entity":{"id":"tool_outlook","type":"Device","properties":{"name":"Outlook","type":"邮件工具","identifiers":["Microsoft","Email"],"purpose":"邮件管理，日程安排","status":"active"},"created":"2026-03-15T16:07:00Z","updated":"2026-03-15T16:07:00Z"}}
+{"op":"create","entity":{"id":"tool_kimi","type":"Device","properties":{"name":"Kimi AI","type":"AI模型","identifiers":["Moonshot","LLM"],"purpose":"大模型对话，技术咨询","status":"active"},"created":"2026-03-15T16:07:00Z","updated":"2026-03-15T16:07:00Z"}}
+{"op":"create","entity":{"id":"tool_github","type":"Device","properties":{"name":"GitHub","type":"代码托管","identifiers":["Git","Version Control"],"purpose":"代码管理，开源项目","status":"active"},"created":"2026-03-15T16:07:00Z","updated":"2026-03-15T16:07:00Z"}}
+{"op":"relate","from":"person_david","rel":"uses","to":"tool_pycharm","created":"2026-03-15T16:07:00Z"}}
+{"op":"relate","from":"person_david","rel":"uses","to":"tool_mobaxterm","created":"2026-03-15T16:07:00Z"}}
+{"op":"relate","from":"person_david","rel":"uses","to":"tool_openclaw","created":"2026-03-15T16:07:00Z"}}
+{"op":"relate","from":"person_david","rel":"uses","to":"tool_telegram","created":"2026-03-15T16:07:00Z"}}
+{"op":"relate","from":"person_david","rel":"uses","to":"tool_teams","created":"2026-03-15T16:07:00Z"}}
+{"op":"relate","from":"person_david","rel":"uses","to":"tool_outlook","created":"2026-03-15T16:07:00Z"}}
+{"op":"relate","from":"person_david","rel":"uses","to":"tool_kimi","created":"2026-03-15T16:07:00Z"}}
+{"op":"relate","from":"person_david","rel":"uses","to":"tool_github","created":"2026-03-15T16:07:00Z"}}
+{"op":"create","entity":{"id":"person_zhihui","type":"Person","properties":{"name":"刘智慧","role":"妻子","notes":"贤惠勤劳，家庭核心支柱，爱好烹饪"},"created":"2026-03-15T16:07:00Z","updated":"2026-03-15T16:07:00Z"}}
+{"op":"create","entity":{"id":"person_jimmy","type":"Person","properties":{"name":"Jimmy（黄铄）","role":"儿子","birthdate":"2012-11-17","notes":"脑子活，比较内向，爱好游戏"},"created":"2026-03-15T16:07:00Z","updated":"2026-03-15T16:07:00Z"}}
+{"op":"relate","from":"person_david","rel":"married_to","to":"person_zhihui","created":"2026-03-15T16:07:00Z"}}
+{"op":"relate","from":"person_david","rel":"parent_of","to":"person_jimmy","created":"2026-03-15T16:07:00Z"}}
+{"op":"relate","from":"person_zhihui","rel":"parent_of","to":"person_jimmy","created":"2026-03-15T16:07:00Z"}}
+{"op":"create","entity":{"id":"contact_ai_community","type":"Organization","properties":{"name":"AI学习社群","type":"在线社区","members":["person_david"],"notes":"AI技术交流，资源分享"},"created":"2026-03-15T16:07:00Z","updated":"2026-03-15T16:07:00Z"}}
+{"op":"create","entity":{"id":"contact_eu_startup","type":"Organization","properties":{"name":"欧洲创业者联盟","type":"创业社区","members":["person_david"],"notes":"欧洲创业经验分享，资源对接"},"created":"2026-03-15T16:07:00Z","updated":"2026-03-15T16:07:00Z"}}
+{"op":"create","entity":{"id":"account_github_david","type":"Account","properties":{"service":"GitHub","username":"david1127","notes":"代码仓库，开源项目"},"created":"2026-03-15T16:07:00Z","updated":"2026-03-15T16:07:00Z"}}
+{"op":"create","entity":{"id":"account_telegram_david","type":"Account","properties":{"service":"Telegram","username":"@david1127","notes":"主要通讯工具"},"created":"2026-03-15T16:07:00Z","updated":"2026-03-15T16:07:00Z"}}
+{"op":"relate","from":"person_david","rel":"has_account","to":"account_github_david","created":"2026-03-15T16:07:00Z"}}
+{"op":"relate","from":"person_david","rel":"has_account","to":"account_telegram_david","created":"2026-03-15T16:07:00Z"}}
+{"op":"create","entity":{"id":"idea_ai_consulting","type":"Document","properties":{"title":"AI咨询服务平台","type":"商业想法","summary":"为欧洲中小企业提供AI转型咨询服务","description":"利用中国AI技术优势，为欧洲企业提供：1) AI战略咨询 2) 定制化AI解决方案 3) 技术培训","target_market":"欧洲中小企业","estimated_revenue":"€5000-15000/月","competition":"中等","difficulty":"中等","status":"research"},"created":"2026-03-15T16:09:00Z","updated":"2026-03-15T16:09:00Z"}}
+{"op":"create","entity":{"id":"idea_automation_tools","type":"Document","properties":{"title":"自动化工具开发","type":"商业想法","summary":"开发面向特定行业的AI自动化工具","description":"基于OpenClaw和Agent技术，开发：1) 电商自动化工具 2) 内容生成工具 3) 数据分析工具","target_market":"全球SaaS市场","estimated_revenue":"€3000-10000/月","competition":"高","difficulty":"高","status":"idea"},"created":"2026-03-15T16:09:00Z","updated":"2026-03-15T16:09:00Z"}}
+{"op":"create","entity":{"id":"idea_ai_education","type":"Document","properties":{"title":"AI教育培训","type":"商业想法","summary":"面向欧洲华人的AI技术培训课程","description":"针对在欧华人，提供：1) AI入门课程 2) 实战项目指导 3) 就业辅导","target_market":"欧洲华人技术从业者","estimated_revenue":"€2000-8000/月","competition":"低","difficulty":"低","status":"idea"},"created":"2026-03-15T16:09:00Z","updated":"2026-03-15T16:09:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_idea","to":"idea_ai_consulting","created":"2026-03-15T16:09:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_idea","to":"idea_automation_tools","created":"2026-03-15T16:09:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_idea","to":"idea_ai_education","created":"2026-03-15T16:09:00Z"}}
+{"op":"create","entity":{"id":"market_eu_sme","type":"Document","properties":{"title":"欧洲中小企业AI市场分析","type":"市场分析","market_size":"€50B+","growth_rate":"25%/年","key_players":["McKinsey","BCG"," boutique AI firms"],"opportunities":["数字化转型需求旺盛","AI人才短缺","中国企业有成本优势"],"threats":["语言文化障碍","法规合规要求","本地竞争激烈"],"notes":"欧洲企业对AI需求强烈，但实施能力有限"},"created":"2026-03-15T16:09:00Z","updated":"2026-03-15T16:09:00Z"}}
+{"op":"create","entity":{"id":"market_china_eu_bridge","type":"Document","properties":{"title":"中欧AI技术桥梁机会","type":"市场分析","market_size":"€10B+","growth_rate":"30%/年","key_players":["跨境咨询公司","技术外包公司"],"opportunities":["中国AI技术领先","欧洲市场需求大","匈牙利地理位置优势"],"threats":["地缘政治风险","数据隐私法规","技术出口限制"],"notes":"利用匈牙利地理优势，连接中国技术和欧洲市场"},"created":"2026-03-15T16:09:00Z","updated":"2026-03-15T16:09:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"analyzes","to":"market_eu_sme","created":"2026-03-15T16:09:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"analyzes","to":"market_china_eu_bridge","created":"2026-03-15T16:09:00Z"}}
+{"op":"create","entity":{"id":"competitor_mckinsey","type":"Organization","properties":{"name":"McKinsey Digital","type":"竞争对手","strengths":["品牌知名度","全球网络","资源丰富"],"weaknesses":["价格昂贵","服务标准化","响应慢"],"notes":"高端市场领导者"},"created":"2026-03-15T16:09:00Z","updated":"2026-03-15T16:09:00Z"}}
+{"op":"create","entity":{"id":"competitor_boutique","type":"Organization","properties":{"name":"本地AI咨询公司","type":"竞争对手","strengths":["本地关系","语言优势","响应快"],"weaknesses":["技术能力有限","规模小","成本高"],"notes":"中小企业市场主要竞争者"},"created":"2026-03-15T16:09:00Z","updated":"2026-03-15T16:09:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"competes_with","to":"competitor_mckinsey","created":"2026-03-15T16:09:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"competes_with","to":"competitor_boutique","created":"2026-03-15T16:09:00Z"}}
+{"op":"create","entity":{"id":"finance_year1","type":"Document","properties":{"title":"第一年财务规划","type":"财务规划","revenue_target":"€10000","cost_structure":{"学习投入":"€2000","工具软件":"€1000","市场推广":"€2000","运营成本":"€1000"},"profit_target":"€4000","funding_source":"个人储蓄","break_even":"6个月"},"created":"2026-03-15T16:09:00Z","updated":"2026-03-15T16:09:00Z"}}
+{"op":"create","entity":{"id":"finance_year2","type":"Document","properties":{"title":"第二年财务规划","type":"财务规划","revenue_target":"€50000","cost_structure":{"人员成本":"€15000","市场推广":"€5000","运营成本":"€5000","技术投入":"€5000"},"profit_target":"€20000","funding_source":"业务盈利","break_even":"3个月"},"created":"2026-03-15T16:09:00Z","updated":"2026-03-15T16:09:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_finance_plan","to":"finance_year1","created":"2026-03-15T16:09:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_finance_plan","to":"finance_year2","created":"2026-03-15T16:09:00Z"}}
+{"op":"create","entity":{"id":"risk_technical","type":"Document","properties":{"title":"技术风险","type":"风险分析","probability":"中","impact":"高","description":"AI技术快速迭代，学习曲线陡峭，可能无法及时掌握最新技术","mitigation":"持续学习，关注社区，实践项目","owner":"person_david","status":"monitoring"},"created":"2026-03-15T16:09:00Z","updated":"2026-03-15T16:09:00Z"}}
+{"op":"create","entity":{"id":"risk_market","type":"Document","properties":{"title":"市场风险","type":"风险分析","probability":"中","impact":"中","description":"市场需求变化，竞争激烈，可能无法获得足够客户","mitigation":"多元化服务，建立口碑，持续市场调研","owner":"person_david","status":"monitoring"},"created":"2026-03-15T16:09:00Z","updated":"2026-03-15T16:09:00Z"}}
+{"op":"create","entity":{"id":"risk_legal","type":"Document","properties":{"title":"法律合规风险","type":"风险分析","probability":"低","impact":"高","description":"GDPR合规，数据隐私，跨境数据传输法规","mitigation":"咨询法律专家，使用合规工具，明确数据政策","owner":"person_david","status":"identified"},"created":"2026-03-15T16:09:00Z","updated":"2026-03-15T16:09:00Z"}}
+{"op":"create","entity":{"id":"risk_financial","type":"Document","properties":{"title":"财务风险","type":"风险分析","probability":"中","impact":"高","description":"收入不稳定，前期投入大，现金流紧张","mitigation":"控制成本，保持正职工作，逐步过渡","owner":"person_david","status":"monitoring"},"created":"2026-03-15T16:09:00Z","updated":"2026-03-15T16:09:00Z"}}
+{"op":"create","entity":{"id":"risk_time","type":"Document","properties":{"title":"时间管理风险","type":"风险分析","probability":"高","impact":"中","description":"工作、学习、家庭时间冲突，无法保证学习时间","mitigation":"制定严格时间表，家庭支持，提高效率","owner":"person_david","status":"active"},"created":"2026-03-15T16:09:00Z","updated":"2026-03-15T16:09:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_risk","to":"risk_technical","created":"2026-03-15T16:09:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_risk","to":"risk_market","created":"2026-03-15T16:09:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_risk","to":"risk_legal","created":"2026-03-15T16:09:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_risk","to":"risk_financial","created":"2026-03-15T16:09:00Z"}}
+{"op":"relate","from":"proj_startup","rel":"has_risk","to":"risk_time","created":"2026-03-15T16:09:00Z"}}
