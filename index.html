@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧家健康食谱 🍽️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            padding: 30px 0;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+        
+        .tabs {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            flex-shrink: 0;
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            background: white;
+            color: #667eea;
+        }
+        
+        .tab:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .tab.active:hover {
+            background: white;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .day-content {
+            display: none;
+        }
+        
+        .day-content.active {
+            display: block;
+        }
+        
+        .meal {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .meal:last-child {
+            margin-bottom: 0;
+        }
+        
+        .meal-type {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .meal-type h3 {
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+        
+        .meal-icon {
+            font-size: 1.5rem;
+        }
+        
+        .meal-content {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .nutrition {
+            margin-top: 10px;
+            padding: 10px;
+            background: #e8f4f8;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .nutrition strong {
+            color: #667eea;
+        }
+        
+        .tips-section {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .tips-section h2 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .tips-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .tips-section li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .tips-section li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .shopping-list {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff3cd;
+            border-radius: 15px;
+            border: 2px dashed #ffc107;
+        }
+        
+        .shopping-list h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        
+        .shopping-list ul {
+            list-style: none;
+            columns: 2;
+            column-gap: 20px;
+        }
+        
+        .shopping-list li {
+            padding: 5px 0;
+            color: #856404;
+        }
+        
+        .shopping-list li::before {
+            content: "☐ ";
+        }
+        
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .tabs {
+                gap: 8px;
+            }
+            
+            .tab {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .content {
+                padding: 15px;
+            }
+            
+            .meal {
+                padding: 15px;
+            }
+            
+            .shopping-list ul {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍽️ 智慧家健康食谱</h1>
+            <p>3人份 · 中式为主 · 助力Jimmy健康成长</p>
+        </header>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showDay('mon')">周一</button>
+            <button class="tab" onclick="showDay('tue')">周二</button>
+            <button class="tab" onclick="showDay('wed')">周三</button>
+            <button class="tab" onclick="showDay('thu')">周四</button>
+            <button class="tab" onclick="showDay('fri')">周五</button>
+            <button class="tab" onclick="showDay('sat')">周六</button>
+            <button class="tab" onclick="showDay('sun')">周日</button>
+        </div>
+        
+        <div class="content">
+            <!-- 周一 -->
+            <div id="mon" class="day-content active">
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">🌅</span>
+                        <h3>早餐</h3>
+                    </div>
+                    <div class="meal-content">牛奶燕麦粥 + 水煮蛋 + 全麦面包</div>
+                    <div class="nutrition"><strong>营养重点：</strong>钙质 + 优质蛋白质</div>
+                </div>
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">☀️</span>
+                        <h3>午餐</h3>
+                    </div>
+                    <div class="meal-content">番茄牛腩 + 蒜蓉西兰花 + 米饭</div>
+                    <div class="nutrition"><strong>营养重点：</strong>铁 + 维生素C + 蛋白质</div>
+                </div>
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">🌙</span>
+                        <h3>晚餐</h3>
+                    </div>
+                    <div class="meal-content">清蒸鲈鱼 + 凉拌黄瓜 + 紫菜蛋花汤</div>
+                    <div class="nutrition"><strong>营养重点：</strong>DHA + 优质蛋白 + 清淡易消化</div>
+                </div>
+            </div>
+            
+            <!-- 周二 -->
+            <div id="tue" class="day-content">
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">🌅</span>
+                        <h3>早餐</h3>
+                    </div>
+                    <div class="meal-content">豆浆 + 菜包 + 坚果一小把</div>
+                    <div class="nutrition"><strong>营养重点：</strong>植物蛋白 + 不饱和脂肪酸</div>
+                </div>
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">☀️</span>
+                        <h3>午餐</h3>
+                    </div>
+                    <div class="meal-content">可乐鸡翅 + 清炒油麦菜 + 杂粮饭</div>
+                    <div class="nutrition"><strong>营养重点：</strong>蛋白质 + 膳食纤维</div>
+                </div>
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">🌙</span>
+                        <h3>晚餐</h3>
+                    </div>
+                    <div class="meal-content">虾仁豆腐 + 炒时蔬 + 冬瓜排骨汤</div>
+                    <div class="nutrition"><strong>营养重点：</strong>钙 + 优质蛋白 + 清热</div>
+                </div>
+            </div>
+            
+            <!-- 周三 -->
+            <div id="wed" class="day-content">
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">🌅</span>
+                        <h3>早餐</h3>
+                    </div>
+                    <div class="meal-content">酸奶 + 香蕉 + 全麦三明治</div>
+                    <div class="nutrition"><strong>营养重点：</strong>益生菌 + 钾 + 复合碳水</div>
+                </div>
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">☀️</span>
+                        <h3>午餐</h3>
+                    </div>
+                    <div class="meal-content">红烧排骨 + 凉拌木耳 + 米饭</div>
+                    <div class="nutrition"><strong>营养重点：</strong>钙 + 胶原蛋白 + 铁质</div>
+                </div>
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">🌙</span>
+                        <h3>晚餐</h3>
+                    </div>
+                    <div class="meal-content">番茄炒蛋 + 蒜蓉菠菜 + 鲫鱼豆腐汤</div>
+                    <div class="nutrition"><strong>营养重点：</strong>蛋白质 + 铁 + 钙</div>
+                </div>
+            </div>
+            
+            <!-- 周四 -->
+            <div id="thu" class="day-content">
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">🌅</span>
+                        <h3>早餐</h3>
+                    </div>
+                    <div class="meal-content">小米粥 + 蒸蛋羹 + 小馒头</div>
+                    <div class="nutrition"><strong>营养重点：</strong>易消化 + 优质蛋白质</div>
+                </div>
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">☀️</span>
+                        <h3>午餐</h3>
+                    </div>
+                    <div class="meal-content">黑椒牛柳 + 炒豆芽 + 米饭</div>
+                    <div class="nutrition"><strong>营养重点：</strong>铁 + 锌 + 优质蛋白</div>
+                </div>
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">🌙</span>
+                        <h3>晚餐</h3>
+                    </div>
+                    <div class="meal-content">清蒸鳕鱼 + 白灼菜心 + 萝卜羊肉汤</div>
+                    <div class="nutrition"><strong>营养重点：</strong>Omega-3 + 暖身补气</div>
+                </div>
+            </div>
+            
+            <!-- 周五 -->
+            <div id="fri" class="day-content">
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">🌅</span>
+                        <h3>早餐</h3>
+                    </div>
+                    <div class="meal-content">牛奶 + 鸡蛋灌饼 + 水果</div>
+                    <div class="nutrition"><strong>营养重点：</strong>钙 + 碳水 + 维生素C</div>
+                </div>
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">☀️</span>
+                        <h3>午餐</h3>
+                    </div>
+                    <div class="meal-content">糖醋里脊 + 炒土豆丝 + 米饭</div>
+                    <div class="nutrition"><strong>营养重点：</strong>能量补充 + 开胃</div>
+                </div>
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">🌙</span>
+                        <h3>晚餐</h3>
+                    </div>
+                    <div class="meal-content">蒜蓉粉丝蒸扇贝 + 炒生菜 + 番茄蛋汤</div>
+                    <div class="nutrition"><strong>营养重点：</strong>锌 + 优质蛋白</div>
+                </div>
+            </div>
+            
+            <!-- 周六（西式） -->
+            <div id="sat" class="day-content">
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">🌅</span>
+                        <h3>早餐</h3>
+                    </div>
+                    <div class="meal-content">煎蛋 + 烤吐司 + 牛奶</div>
+                    <div class="nutrition"><strong>营养重点：</strong>经典西式早餐 + 蛋白质</div>
+                </div>
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">☀️</span>
+                        <h3>午餐</h3>
+                    </div>
+                    <div class="meal-content">意式番茄肉酱面 + 蔬菜沙拉</div>
+                    <div class="nutrition"><strong>营养重点：</strong>碳水 + 纤维 + 换换口味</div>
+                </div>
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">🌙</span>
+                        <h3>晚餐</h3>
+                    </div>
+                    <div class="meal-content">煎三文鱼 + 烤蔬菜 + 南瓜浓汤</div>
+                    <div class="nutrition"><strong>营养重点：</strong>Omega-3 + 维生素A</div>
+                </div>
+            </div>
+            
+            <!-- 周日 -->
+            <div id="sun" class="day-content">
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">🌅</span>
+                        <h3>早餐</h3>
+                    </div>
+                    <div class="meal-content">杂粮粥 + 茶叶蛋 + 小菜</div>
+                    <div class="nutrition"><strong>营养重点：</strong>膳食纤维 + 传统早餐</div>
+                </div>
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">☀️</span>
+                        <h3>午餐</h3>
+                    </div>
+                    <div class="meal-content">土豆炖牛肉 + 炒青菜 + 米饭</div>
+                    <div class="nutrition"><strong>营养重点：</strong>能量 + 铁 + 蛋白质</div>
+                </div>
+                <div class="meal">
+                    <div class="meal-type">
+                        <span class="meal-icon">🌙</span>
+                        <h3>晚餐</h3>
+                    </div>
+                    <div class="meal-content">白切鸡 + 凉拌海带丝 + 玉米排骨汤</div>
+                    <div class="nutrition"><strong>营养重点：</strong>优质蛋白 + 碘 + 钙</div>
+                </div>
+            </div>
+            
+            <div class="tips-section">
+                <h2>🥛 Jimmy青春期长高小贴士</h2>
+                <p style="margin-bottom: 15px;">14岁正是长高的黄金期，这些营养要跟上：</p>
+                <ul>
+                    <li><strong>每天必喝：</strong>牛奶/酸奶 500ml（早晚各一杯）</li>
+                    <li><strong>每天必吃：</strong>鸡蛋 1-2个、瘦肉/鱼/虾 适量</li>
+                    <li><strong>补钙：</strong>牛奶、豆腐、小鱼干、绿叶蔬菜</li>
+                    <li><strong>补蛋白质：</strong>鸡蛋、瘦肉、鱼、豆制品</li>
+                    <li><strong>补锌：</strong>牛肉、海鲜、坚果</li>
+                    <li><strong>维生素D：</strong>每天晒太阳20分钟</li>
+                    <li><strong>睡眠：</strong>晚上10点前睡觉，生长激素分泌高峰期</li>
+                    <li><strong>避免：</strong>碳酸饮料、过多油炸食品</li>
+                </ul>
+            </div>
+            
+            <div class="shopping-list">
+                <h3>🛒 常备食材清单</h3>
+                <ul>
+                    <li>鸡蛋</li>
+                    <li>牛奶/酸奶</li>
+                    <li>牛肉</li>
+                    <li>鸡肉</li>
+                    <li>猪肉</li>
+                    <li>鲈鱼/鳕鱼</li>
+                    <li>虾</li>
+                    <li>豆腐</li>
+                    <li>番茄</li>
+                    <li>西兰花</li>
+                    <li>菠菜</li>
+                    <li>土豆</li>
+                    <li>燕麦</li>
+                    <li>全麦面包</li>
+                    <li>坚果</li>
+                    <li>香蕉</li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer style="text-align: center; color: white; padding: 20px; opacity: 0.8;">
+            <p>💝 为智慧家定制 · 祝Jimmy健康成长</p>
+        </footer>
+    </div>
+    
+    <script>
+        function showDay(day) {
+            // 隐藏所有内容
+            document.querySelectorAll('.day-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // 移除所有tab的active状态
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // 显示选中的内容
+            document.getElementById(day).classList.add('active');
+            
+            // 激活选中的tab
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
