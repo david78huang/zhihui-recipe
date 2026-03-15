@@ -16,3 +16,4 @@ Quartz is a set of tools that helps you publish your [digital garden](https://jz
   </a>
 </p>
 trigger rebuild
+# Force rebuild
